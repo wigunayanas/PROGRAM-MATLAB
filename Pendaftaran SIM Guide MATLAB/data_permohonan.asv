@@ -1,0 +1,547 @@
+function varargout = data_permohonan(varargin)
+% DATA_PERMOHONAN M-file for data_permohonan.fig
+%      DATA_PERMOHONAN, by itself, creates a new DATA_PERMOHONAN or raises the existing
+%      singleton*.
+%
+%      H = DATA_PERMOHONAN returns the handle to a new DATA_PERMOHONAN or the handle to
+%      the existing singleton*.
+%
+%      DATA_PERMOHONAN('CALLBACK',hObject,eventData,handles,...) calls the local
+%      function named CALLBACK in DATA_PERMOHONAN.M with the given input arguments.
+%
+%      DATA_PERMOHONAN('Property','Value',...) creates a new DATA_PERMOHONAN or raises the
+%      existing singleton*.  Starting from the left, property value pairs are
+%      applied to the GUI before data_permohonan_OpeningFcn gets called.  An
+%      unrecognized property name or invalid value makes property application
+%      stop.  All inputs are passed to data_permohonan_OpeningFcn via varargin.
+%
+%      *See GUI Options on GUIDE's Tools menu.  Choose "GUI allows only one
+%      instance to run (singleton)".
+%
+% See also: GUIDE, GUIDATA, GUIHANDLES
+
+% Edit the above text to modify the response to help data_permohonan
+
+% Last Modified by GUIDE v2.5 07-Jun-2021 12:44:40
+
+% Begin initialization code - DO NOT EDIT
+gui_Singleton = 1;
+gui_State = struct('gui_Name',       mfilename, ...
+                   'gui_Singleton',  gui_Singleton, ...
+                   'gui_OpeningFcn', @data_permohonan_OpeningFcn, ...
+                   'gui_OutputFcn',  @data_permohonan_OutputFcn, ...
+                   'gui_LayoutFcn',  [] , ...
+                   'gui_Callback',   []);
+if nargin && ischar(varargin{1})
+    gui_State.gui_Callback = str2func(varargin{1});
+end
+
+if nargout
+    [varargout{1:nargout}] = gui_mainfcn(gui_State, varargin{:});
+else
+    gui_mainfcn(gui_State, varargin{:});
+end
+% End initialization code - DO NOT EDIT
+
+
+% --- Executes just before data_permohonan is made visible.
+function data_permohonan_OpeningFcn(hObject, eventdata, handles, varargin)
+% This function has no output args, see OutputFcn.
+% hObject    handle to figure
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+% varargin   command line arguments to data_permohonan (see VARARGIN)
+set(handles.edit_nosim,'enable','off');
+set(handles.edit_penerbit,'enable','off');
+set(handles.edit_alamatsatpas,'enable','off');
+set(handles.edit_polda,'enable','off', 'String', 'POLDA JAWA TIMUR');
+% Choose default command line output for data_permohonan
+handles.output = hObject;
+
+% Update handles structure
+guidata(hObject, handles);
+
+% UIWAIT makes data_permohonan wait for user response (see UIRESUME)
+% uiwait(handles.figure1);
+
+
+% --- Outputs from this function are returned to the command line.
+function varargout = data_permohonan_OutputFcn(hObject, eventdata, handles) 
+% varargout  cell array for returning output args (see VARARGOUT);
+% hObject    handle to figure
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Get default command line output from handles structure
+varargout{1} = handles.output;
+
+
+% --- Executes on selection change in pop_polda.
+function pop_polda_Callback(hObject, eventdata, handles)
+% hObject    handle to pop_polda (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+polres = get(handles.pop_polda,'Value');
+if polres == 2
+    set(handles.edit_alamatsatpas,'String','JL. Ikan Kerapu 2-4 Surabaya');
+elseif polres == 3
+    set(handles.edit_alamatsatpas, 'String', 'JL. Jagung Suprapto 19 Malang Kota');
+elseif polres == 4
+    set(handles.edit_alamatsatpas, 'String', 'JL. Suroyo 42 Probolinggo');
+elseif polres == 5
+    set(handles.edit_alamatsatpas, 'String', 'JL. Raya Sukarno Hatta 148 Pasuruan');
+elseif polres == 6
+    set(handles.edit_alamatsatpas, 'String', 'JL. Jend. Panjaitan 77 Lumajang');
+elseif polres == 7
+    set(handles.edit_alamatsatpas, 'String', 'JL. A. Yani 29 Bondowoso');
+elseif polres == 8
+    set(handles.edit_alamatsatpas, 'String', 'JL. PB. Sudirman 30 Kel. Patokan Situbondo');
+elseif polres == 9
+    set(handles.edit_alamatsatpas, 'String', 'JL. Letjen Panjaitan 46 Jember');
+elseif polres == 10
+    set(handles.edit_alamatsatpas, 'String', 'JL. Brawijaya 21 Banyuwangi');
+elseif polres == 11
+    set(handles.edit_alamatsatpas, 'String', 'JL. Brawijaya 25 Kediri Kota');
+elseif polres == 12
+    set(handles.edit_alamatsatpas, 'String', 'JL. Talun 88 Blitar');
+elseif polres == 13
+    set(handles.edit_alamatsatpas, 'String', 'JL. Mayjen Suprapto 21 Tulungagung');
+elseif polres == 14
+    set(handles.edit_alamatsatpas, 'String', 'JL. Gatot Subroto 116 Nganjuk');
+elseif polres == 15
+    set(handles.edit_alamatsatpas, 'String', 'JL. Dewi Sartika 521 Trenggalek');
+elseif polres == 16
+    set(handles.edit_alamatsatpas, 'String', 'JL. Sukarno Hatta 66 Madiun');
+elseif polres == 17
+    set(handles.edit_alamatsatpas, 'String', 'JL. Jagung Suprapto 10 Ngawi');
+elseif polres == 18
+    set(handles.edit_alamatsatpas, 'String', 'JL. Inspol Ismiadi 4 Magetan');
+elseif polres == 19
+    set(handles.edit_alamatsatpas, 'String', 'JL. Bhayangkara 60 Ponorogo');
+elseif polres == 20
+    set(handles.edit_alamatsatpas, 'String', 'JL. A. Yani 60 Pacitan');
+elseif polres == 21
+    set(handles.edit_alamatsatpas, 'String', 'JL. Kapten Martono Bojonegoro');
+elseif polres == 22
+    set(handles.edit_alamatsatpas, 'String', 'JL. DR. Wahidin S. Husodo 873 Tuban');
+elseif polres == 23
+    set(handles.edit_alamatsatpas, 'String', 'JL. AKBP M. Duriyat 62 Lamongan');
+elseif polres == 24
+    set(handles.edit_alamatsatpas, 'String', 'JL. KOMBES M. Duriyat 45 Sidoarjo');
+elseif polres == 25
+    set(handles.edit_alamatsatpas, 'String', 'JL. Raya Randu Agung');
+elseif polres == 26
+    set(handles.edit_alamatsatpas, 'String', 'JL. Gajah Mada 99 Mojosari Mojokerto');
+elseif polres == 27
+    set(handles.edit_alamatsatpas, 'String', 'JL. BRIGJEN Kretarto 10 Jombang');
+elseif polres == 28
+    set(handles.edit_alamatsatpas, 'String', 'JL. Urip Sumoharjo 35 Sumenep');
+
+end
+% Hints: contents = get(hObject,'String') returns pop_polda contents as cell array
+%        contents{get(hObject,'Value')} returns selected item from pop_polda
+
+
+% --- Executes during object creation, after setting all properties.
+function pop_polda_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to pop_polda (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: popupmenu controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+
+function edit_nosim_Callback(hObject, eventdata, handles)
+% hObject    handle to edit_nosim (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of edit_nosim as text
+%        str2double(get(hObject,'String')) returns contents of edit_nosim as a double
+
+
+% --- Executes during object creation, after setting all properties.
+function edit_nosim_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to edit_nosim (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+
+function edit_email_Callback(hObject, eventdata, handles)
+% hObject    handle to edit_email (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of edit_email as text
+%        str2double(get(hObject,'String')) returns contents of edit_email as a double
+
+
+% --- Executes during object creation, after setting all properties.
+function edit_email_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to edit_email (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+
+function edit_penerbit_Callback(hObject, eventdata, handles)
+% hObject    handle to edit_penerbit (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of edit_penerbit as text
+%        str2double(get(hObject,'String')) returns contents of edit_penerbit as a double
+
+
+% --- Executes during object creation, after setting all properties.
+function edit_penerbit_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to edit_penerbit (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+
+function edit_polda_Callback(hObject, eventdata, handles)
+% hObject    handle to edit_polda (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of edit_polda as text
+%        str2double(get(hObject,'String')) returns contents of edit_polda as a double
+
+
+% --- Executes during object creation, after setting all properties.
+function edit_polda_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to edit_polda (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+
+function edit_alamatsatpas_Callback(hObject, eventdata, handles)
+% hObject    handle to edit_alamatsatpas (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of edit_alamatsatpas as text
+%        str2double(get(hObject,'String')) returns contents of edit_alamatsatpas as a double
+
+
+% --- Executes during object creation, after setting all properties.
+function edit_alamatsatpas_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to edit_alamatsatpas (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+
+function edit_tinggi_Callback(hObject, eventdata, handles)
+% hObject    handle to edit_tinggi (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of edit_tinggi as text
+%        str2double(get(hObject,'String')) returns contents of edit_tinggi as a double
+
+
+% --- Executes during object creation, after setting all properties.
+function edit_tinggi_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to edit_tinggi (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+
+function edit_nohp_Callback(hObject, eventdata, handles)
+% hObject    handle to edit_nohp (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of edit_nohp as text
+%        str2double(get(hObject,'String')) returns contents of edit_nohp as a double
+
+
+% --- Executes during object creation, after setting all properties.
+function edit_nohp_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to edit_nohp (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+
+function edit_nik_Callback(hObject, eventdata, handles)
+% hObject    handle to edit_nik (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of edit_nik as text
+%        str2double(get(hObject,'String')) returns contents of edit_nik as a double
+
+
+% --- Executes during object creation, after setting all properties.
+function edit_nik_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to edit_nik (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+
+function edit_nama_Callback(hObject, eventdata, handles)
+% hObject    handle to edit_nama (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of edit_nama as text
+%        str2double(get(hObject,'String')) returns contents of edit_nama as a double
+
+
+% --- Executes during object creation, after setting all properties.
+function edit_nama_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to edit_nama (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+
+function edit_pendidikan_Callback(hObject, eventdata, handles)
+% hObject    handle to edit_pendidikan (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of edit_pendidikan as text
+%        str2double(get(hObject,'String')) returns contents of edit_pendidikan as a double
+
+
+% --- Executes during object creation, after setting all properties.
+function edit_pendidikan_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to edit_pendidikan (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+
+function edit_pekerjaan_Callback(hObject, eventdata, handles)
+% hObject    handle to edit_pekerjaan (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of edit_pekerjaan as text
+%        str2double(get(hObject,'String')) returns contents of edit_pekerjaan as a double
+
+
+% --- Executes during object creation, after setting all properties.
+function edit_pekerjaan_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to edit_pekerjaan (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+
+function edit_alamat_Callback(hObject, eventdata, handles)
+% hObject    handle to edit_alamat (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of edit_alamat as text
+%        str2double(get(hObject,'String')) returns contents of edit_alamat as a double
+
+
+% --- Executes during object creation, after setting all properties.
+function edit_alamat_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to edit_alamat (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+% --- Executes on button press in browse.
+function browse_Callback(hObject, eventdata, handles)
+% hObject    handle to browse (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+[namafile, formatfile] = uigetfile({'*.jpg'}, 'membuka gambar'); %memilih gambar
+image = imread([formatfile, namafile]); %membaca gambar
+guidata(hObject, handles);
+set(handles.text24,'String',)
+
+
+% --- Executes on button press in cetak.
+function cetak_Callback(hObject, eventdata, handles)
+% hObject    handle to cetak (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+if get(handles.sim_baru, 'Value')
+    if get(handles.sim_a, 'Value')
+        set(handles.text_judul, 'String', 'FORM REGISTER'); %--------- judul ---------
+        nama = get(handles.edit_nama, 'String'); %---- nama
+        set(handles.text_nama, 'String',nama)
+        nik = get(handles.edit_nik, 'String'); %---- nik
+        set(handles.text_nik, 'String',nik)
+        no = get(handles.edit_nohp, 'String'); %---- no hp
+        set(handles.text_nohp, 'String',no)
+        email = get(handles.edit_email, 'String'); %---- email
+        set(handles.text_email, 'String',email)
+        kerja = get(handles.edit_pekerjaan, 'String'); %---- pekerjaan
+        set(handles.text_pekerjaan, 'String',kerja)
+        alamat = get(handles.edit_alamat, 'String'); %---- pekerjaan
+        set(handles.text_alamat, 'String',alamat)
+        set(handles.text_jenis, 'String','SIM A') %---- jenis sim
+        set(handles.text_permohonan, 'String','SIM Baru') %---- permohonan
+    elseif get(handles.sim_c, 'Value')
+        set(handles.text_judul, 'String', 'FORM REGISTER'); %--------- judul ---------
+        nama = get(handles.edit_nama, 'String'); %---- nama
+        set(handles.text_nama, 'String',nama)
+        nik = get(handles.edit_nik, 'String'); %---- nik
+        set(handles.text_nik, 'String',nik)
+        no = get(handles.edit_nohp, 'String'); %---- no hp
+        set(handles.text_nohp, 'String',no)
+        email = get(handles.edit_email, 'String'); %---- email
+        set(handles.text_email, 'String',email)
+        kerja = get(handles.edit_pekerjaan, 'String'); %---- pekerjaan
+        set(handles.text_pekerjaan, 'String',kerja)
+        alamat = get(handles.edit_alamat, 'String'); %---- pekerjaan
+        set(handles.text_alamat, 'String',alamat)
+        set(handles.text_jenis, 'String','SIM C') %---- jenis sim
+        set(handles.text_permohonan, 'String','SIM Baru') %---- permohonan
+    end
+elseif get(handles.perpanjang_sim, 'Value')
+    if get(handles.sim_a, 'Value')
+        set(handles.text_judul, 'String', 'FORM REGISTER'); %--------- judul ---------
+        nama = get(handles.edit_nama, 'String'); %---- nama
+        set(handles.text_nama, 'String',nama)
+        nik = get(handles.edit_nik, 'String'); %---- nik
+        set(handles.text_nik, 'String',nik)
+        no = get(handles.edit_nohp, 'String'); %---- no hp
+        set(handles.text_nohp, 'String',no)
+        email = get(handles.edit_email, 'String'); %---- email
+        set(handles.text_email, 'String',email)
+        kerja = get(handles.edit_pekerjaan, 'String'); %---- pekerjaan
+        set(handles.text_pekerjaan, 'String',kerja)
+        alamat = get(handles.edit_alamat, 'String'); %---- pekerjaan
+        set(handles.text_alamat, 'String',alamat)
+        set(handles.text_jenis, 'String','SIM A') %---- jenis sim
+        set(handles.text_permohonan, 'String','Perpanjangan SIM') %---- permohonan
+    elseif get(handles.sim_c, 'Value')
+        set(handles.text_judul, 'String', 'FORM REGISTER'); %--------- judul ---------
+        nama = get(handles.edit_nama, 'String'); %---- nama
+        set(handles.text_nama, 'String',nama)
+        nik = get(handles.edit_nik, 'String'); %---- nik
+        set(handles.text_nik, 'String',nik)
+        no = get(handles.edit_nohp, 'String'); %---- no hp
+        set(handles.text_nohp, 'String',no)
+        email = get(handles.edit_email, 'String'); %---- email
+        set(handles.text_email, 'String',email)
+        kerja = get(handles.edit_pekerjaan, 'String'); %---- pekerjaan
+        set(handles.text_pekerjaan, 'String',kerja)
+        alamat = get(handles.edit_alamat, 'String'); %---- pekerjaan
+        set(handles.text_alamat, 'String',alamat)
+        set(handles.text_jenis, 'String','SIM C') %---- jenis sim
+        set(handles.text_permohonan, 'String','Perpanjangan SIM') %---- permohonan
+    end
+end
+axes(handles.axes_foto); %memilih axes1 sebagai letak gambar yang dimunculkan
+imshow(image); %memunculkan gambar
+
+% --- Executes on button press in perpanjang_sim.
+function perpanjang_sim_Callback(hObject, eventdata, handles)
+% hObject    handle to perpanjang_sim (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+set(handles.edit_nosim,'enable','on');
+set(handles.edit_penerbit,'enable','on');
+% Hint: get(hObject,'Value') returns toggle state of perpanjang_sim
+
+
+% --- Executes on button press in sim_baru.
+function sim_baru_Callback(hObject, eventdata, handles)
+% hObject    handle to sim_baru (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+set(handles.edit_nosim,'enable','off');
+set(handles.edit_penerbit,'enable','off');
+% Hint: get(hObject,'Value') returns toggle state of sim_baru
+
+
+% --- Executes on button press in keluar.
+function keluar_Callback(hObject, eventdata, handles)
+% hObject    handle to keluar (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+close(data_permohonan)

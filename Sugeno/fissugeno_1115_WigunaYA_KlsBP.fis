@@ -1,0 +1,40 @@
+[System]
+Name='fissugeno_1115_WigunaYA_KlsBP'
+Type='sugeno'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=3
+AndMethod='prod'
+OrMethod='probor'
+ImpMethod='prod'
+AggMethod='sum'
+DefuzzMethod='wtaver'
+
+[Input1]
+Name='Servis'
+Range=[0 10]
+NumMFs=3
+MF1='Kecewa':'gaussmf',[1.699 6.939e-017]
+MF2='Bagus':'gaussmf',[1.699 5]
+MF3='Puas':'gaussmf',[1.699 10]
+
+[Input2]
+Name='Makanan'
+Range=[0 10]
+NumMFs=2
+MF1='Hambar':'trimf',[-4 0 7]
+MF2='Enak':'trimf',[3 10 14]
+
+[Output1]
+Name='Bonus'
+Range=[0 1]
+NumMFs=3
+MF1='Sedikit':'constant',[2]
+MF2='Sedang':'constant',[15]
+MF3='Banyak':'constant',[25]
+
+[Rules]
+1 1, 1 (1) : 2
+2 0, 2 (1) : 2
+3 2, 3 (1) : 2
